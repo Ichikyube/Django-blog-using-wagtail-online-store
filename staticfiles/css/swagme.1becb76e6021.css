@@ -1,0 +1,236 @@
+/*!
+ * Start Bootstrap - Blog Home (https://startbootstrap.com/template-overviews/blog-home)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-blog-home/blob/master/LICENSE)
+ */
+
+
+html { overflow-y: scroll; }
+
+.clear {
+  clear: both;
+}
+
+.floatLeft {
+  float: left;
+}
+
+.floatRight {
+  float: right;
+}
+
+body { 
+  color: #eee;
+}
+
+@-webkit-keyframes STAR-MOVE {
+  from {
+    left: 0;
+    top: 0;
+  }
+  to { 
+    left: -10000px;
+    top: -2000px;
+  }
+}
+
+#background {
+  background: black url("../background/background.0bc498f2e166.png") repeat 5% 5%;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 100;
+  
+  -webkit-animation-name: STAR-MOVE;
+  -webkit-animation-duration: 200s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+#midground {
+  background: url("../background/midground.cbbe07d8f44f.png") repeat 20% 20%;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 200;
+  
+  -webkit-animation-name: STAR-MOVE;
+  -webkit-animation-duration: 150s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+#foreground {
+  background: url("../background/foreground.7cd960978271.png") repeat 35% 35%;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 300;
+  
+  -webkit-animation-name: STAR-MOVE;
+  -webkit-animation-duration: 100s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+#page-wrap {
+  margin: 0 auto;
+  position: relative;
+  z-index: 300;
+  background: rgba(0,0,0,0.7);
+  padding: 30px 50px;
+  background: 
+  radial-gradient(black 3px, transparent 4px),
+  radial-gradient(black 3px, transparent 4px),
+  linear-gradient(#fff 4px, transparent 0),
+  linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px),
+  linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px),
+  #fff;
+  background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
+  background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+}
+
+.backgroundItems {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#stars {
+    background: black url("../space/stars.2251e1349246.png") repeat top center;
+    z-index: -3;
+}
+
+#alpha {
+    background: transparent url("../space/alpha.5a05442668c0.png") repeat top center;
+    z-index: -2;
+    animation: stargazing 500s linear infinite;
+}
+
+#nebula {
+    opacity: 0.15;
+    background: transparent url("../space/nebula.9d9d109878b3.png") repeat top center;
+    z-index: -1;
+}
+
+@keyframes stargazing {
+    from { background-position: 0 0;}
+    to { background-position: -10000px 5000px;}
+}
+/* https://bootsnipp.com/snippets/featured/user-profile-sidebar */
+
+/***
+User Profile Sidebar by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
+Licensed under MIT
+***/
+
+/* body { */
+/*   background: #F1F3FA; */
+/* } */
+
+/* Profile container */
+.profile {
+  margin: 20px 0;
+}
+
+/* Profile sidebar */
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  background: #fff;
+}
+
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 70%;
+  height: 70%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+  text-transform: uppercase;
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-userbuttons .btn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+  margin-right: 5px;
+}
+
+.profile-userbuttons .btn:last-child {
+  margin-right: 0px;
+}
+
+.profile-usermenu {
+  margin-top: 30px;
+}
+
+.profile-usermenu ul li {
+  border-bottom: 1px solid #f0f4f7;
+}
+
+.profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li a {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-usermenu ul li a i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+}
+
+.profile-usermenu ul li.active {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li.active a {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+/* Profile Content */
+.profile-content {
+  padding: 20px;
+  background: #fff;
+  min-height: 460px;
+}

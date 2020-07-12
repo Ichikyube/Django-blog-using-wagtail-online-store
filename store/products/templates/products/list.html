@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block base_head %}
+
+<style>
+:root {
+  --jumbotron-padding-y: 3rem;
+}
+
+.jumbotron {
+  padding-top: var(--jumbotron-padding-y);
+  padding-bottom: var(--jumbotron-padding-y);
+  margin-bottom: 0;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: calc(var(--jumbotron-padding-y) * 2);
+    padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+  }
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron-heading {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+</style>
+{% endblock base_head %}
+{% block content %}
+<section class="jumbotron text-center">
+<div class="container">
+    <h1 class="jumbotron-heading">Album example</h1>
+    <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+    <p>
+    <a href="#" class="btn btn-primary my-2">Main call to action</a>
+    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+    </p>
+</div>
+</section>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            {% for obj in object_list %}
+            <div class="col-md-4">
+                {% include "products/snippets/card.html" with instance=obj %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

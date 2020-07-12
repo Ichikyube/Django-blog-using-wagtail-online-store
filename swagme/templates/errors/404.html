@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block body_class %}template-404{% endblock %}
+
+{% block content %}
+
+<main class="main">
+  <div id="background"></div>
+  <div id="midground"></div>
+  <div id="foreground"></div>
+        <div class="main-text text-center" style="z-index: 1000; position: relative; padding: 20%">
+            <h1 style="font-size: xxx-large; color: aquamarine; padding-bottom: 0.6em">Page not found</h1>
+            <a href="/" style="font-size: 10em; color: #fffd7e47; padding-bottom: 2.5em">404</a>
+    		    <h2 style="font-size: small; color: #9acd3229;">Sorry, this page could not be found.</h2>
+        </div>
+</main>
+
+{% endblock %}

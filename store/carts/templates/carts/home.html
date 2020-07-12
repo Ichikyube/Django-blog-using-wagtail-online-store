@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block base_head %}
+{% endblock base_head %}
+{% block content %}
+<div class="row my-5">
+    <div class="col-md mx-5">
+        <h1>cart</h1>
+        <div class="col-sm-6 col-12 p-3 p-md-5 mx-auto bg-light border border-white">
+            {% if cart.products.exists %}
+                <table class="table cart-table card col-6 mx-auto">
+                <thead><hr>
+                    <tr>
+                        <th><h6>#</h6></th>
+                        <th><h6>Product Name</h6></th>
+                        <th><h6 style="margin-left: 4em;">Product Price</h6></th>
+                    </tr>
+                </thead>
+                <tbody class="cart-body">
+                {% for product in cart.products.all %}
+                    <tr class="cart-product" style="border:none">
+                        <th style="border:none" scope="row"><h6>{{ forloop.counter }}</h6></th>
+                        <td style="display:flex;border:none"><a class="px-3" href='{{product.get_absolute_url}}'>{{ product.title }}</a>
+                        {% include 'carts/snippets/remove-product.html' with product_id=product.id %}
+                        </td>
+                        <td style="text-align:right;border:none">{{ product.price }}</td>
+                    </tr>
+                {% endfor %}
+                    <tr>
+                        <td colspan="2"></td>
+                        <td><b>Subtotal</b><span class="cart-subtotal">{{ cart.subtotal }}</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td><b>Total</b><span class="cart-total">{{ cart.total }}</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td><a class="btn btn-block btn-success" href="{% url "cart:checkout" %}">Checkout</a></td>
+                    </tr>
+                </tbody>
+                </table>
+                <div class="cart-item-remove-form" style="display:none">
+                {% include 'carts/snippets/remove-product.html' %}
+                </div>
+            {% else %}
+                <p class="lead">Cart is empty</p>
+            {% endif %}
+        </tr>
+    </div>
+</div>    
+{% endblock content %}

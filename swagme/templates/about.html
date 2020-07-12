@@ -1,0 +1,39 @@
+    <div class="row align-items-center mx-auto">
+        <div class="row">
+            <div class="col">
+                <p class="text-muted">{{premium_content}}</p>
+            </div>
+        </div>
+        <div class="col-md-8 order-md-1 text-center mx-auto text-md-left pr-md-5">
+            <h1 class="mb-3 bd-text-purple-bright">Bootstrap</h1><br/>
+            <p class="lead text-capitalize font-weight-bold">
+            Build responsive, mobile-first projects on the web with the world’s most popular front-end component library.
+            </p>
+            <p class="lead mb-4">
+            Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with our Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built on jQuery.
+            </p>
+            <div class="row mx-n2">
+                <div class="col-md px-2">
+                    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/introduction/" class="btn btn-lg btn-bd-primary w-100 mb-3" onclick="ga('send', 'event', 'Jumbotron actions', 'Get started', 'Get started');">Get started</a>
+                </div>
+                <div class="col-md px-2">
+                    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/download/" class="btn btn-lg btn-outline-secondary w-100 mb-3" onclick="ga('send', 'event', 'Jumbotron actions', 'Download', 'Download {{ site.current_version }}');">Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <main role="main" class="inner cover">
+          <h1 class="cover-heading">Cover your page.</h1>
+          <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+          <p class="lead">
+          <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+          </p>
+        </main>
+        <div class="text-center" style="color:red">
+          <h1>Hello, Ecomm world!</h1>
+          <h1>{{title}}</h1>
+          <img src="{% static 'img/b.jpg' %}" class="img-fluid"></img>
+          <h5>{{content}}</h5><br/>
+        </div>
+    </div>

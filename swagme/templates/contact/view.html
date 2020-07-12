@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container mt-5" style="background-color:beige">
+        <div class="text-center" style="color:red">
+            <h1>Hello, Ecomm world!</h1>
+            <h1>{{title}}</h1>
+        </div>
+        <div class="row mx-n2">
+            <div class="col-md px-2">
+                <p>{{content}}</p>
+                <div class="col-sm-6 col-12 p-3 p-md-5 mx-auto bg-light border border-white">
+                    <form class="contact-form" method="POST" action="{% url 'contact' %}"> {% csrf_token %}
+                        {{form.as_p}}
+                        <button type="submit" class="btn btn-lg btn-outline-secondary w-50 mx-auto mt-3">Submit</button>                        
+                    </form>
+                    <!--form method="POST"> {% csrf_token %}
+                        <input type="text" class="form-control" placeholder="Name" name="fullname">
+                        <input type="email" class="form-control" placeholder="Email" name="email">
+                        <textarea name="message" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form-->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

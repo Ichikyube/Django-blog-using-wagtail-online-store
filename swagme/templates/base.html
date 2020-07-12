@@ -1,0 +1,45 @@
+{% load fullurl wagtailuserbar wagtailfontawesome %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% with self.get_site.site_name as site_name %}
+                    {% if site_name %}- {{ site_name }}{% endif %}
+                {% endwith %}
+            {% endblock %}
+        </title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="Valentino Alam">
+        {# Global stylesheets #}
+        {% fontawesome_css %}
+        <link rel="stylesheet" type="text/css" href="{% fullstatic 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% fullstatic 'css/default.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% fullstatic 'css/_default.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% fullstatic 'css/uniswag.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% fullstatic 'css/swagme.css' %}">
+        {% block extra_css %}{% endblock %}
+    </head>
+
+    <body class="{% block body_class %}{% endblock %}">
+        {% wagtailuserbar %}
+
+        {% block content %}{% endblock %}
+
+        {# Global javascript #}
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="{% fullstatic 'js/bootstrap.min.js' %}" ></script>
+        <script src="{% fullstatic 'js/jquery-3.5.1.min.js' %}" ></script>
+        <script type="text/javascript" src="{% fullstatic 'js/swagme.js' %}"></script>
+        <script type="text/javascript" src="{% fullstatic 'js/uniswag.js' %}"></script>
+        {% block extra_js %}{% endblock %}
+    </body>
+</html>

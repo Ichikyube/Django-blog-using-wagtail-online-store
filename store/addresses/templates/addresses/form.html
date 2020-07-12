@@ -1,0 +1,24 @@
+<style>
+.container {
+  max-width: 960px;
+}
+
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+.border-top-gray { border-top-color: #adb5bd; }
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.lh-condensed { line-height: 1.25; }
+</style>
+
+<form method="POST" action="{% if action_url %}{{ action_url }}{% else %} {% url "login" %}{% endif %}" class="form-signin"> {% csrf_token %}
+    {% if next_url %}
+        <input type="hidden" name="next" value="{{ next_url }}" />
+    {% endif %}
+    {% if address_type %}
+        <input type="hidden" name="address_type" value="{{ address_type }}" />
+    {% endif %}   
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-default btn-sm px-5 btn-primary">submit</button>                        
+</form>

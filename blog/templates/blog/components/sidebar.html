@@ -1,0 +1,40 @@
+{% load static wagtailcore_tags wagtailimages_tags blogapp_tags wagtailroutablepage_tags %}
+
+
+<div class="col-md-4">
+    <div class="profile-sidebar">
+        <!-- SIDEBAR USERPIC -->
+        <div class="profile-userpic">
+            <img src="{% static 'sabotos.jpg' %}" class="mx-auto d-block" alt="myPicture">
+        </div>
+        <div class="profile-usertitle">
+            <div class="profile-usertitle-name">
+                Valentino Alam
+            </div>
+            <div class="profile-usertitle-job">
+                Front End Developer
+            </div>
+        </div>
+    </div>
+    <!-- Search Widget -->
+    <div class="card my-4">
+      <h5 class="card-header">Search</h5>
+      <div class="card-body">
+        <form role="search" method="get" class="form-search" action="{% routablepageurl blog_page "post_search" %}" method="get">
+
+        <div class="input-group">
+          <input type="text" class="form-control search-query" name="q" placeholder="Search&hellip;" title="Search for:" />
+          <span class="input-group-btn">
+            <button class="btn btn-secondary" type="button">Go!</button>
+          </span>
+        </div>
+
+        </form>
+      </div>
+    </div>
+
+    {% categories_list %}
+
+    {% tags_list %}
+
+</div>

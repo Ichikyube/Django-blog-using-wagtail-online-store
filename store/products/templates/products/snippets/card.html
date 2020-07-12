@@ -1,0 +1,20 @@
+<div class="card mb-4 box-shadow">
+  {% if instance.image %}
+  <a href="{{ instance.get_absolute_url }}" class="thumbnail">
+    <img src=" {{ instance.image.url }}" class="card-img-top" alt="{{ instance.title }} logo">
+  </a>
+  {% endif %}
+  <div class="card-body">
+    <h5 class="card-title">{{ instance.title }}</h5>
+    <p class="card-text">{{ instance.description|linebreaks|truncatewords:25 }}</p>
+    <!--<a href="{{ instance.get_absolute_url }}" class="btn btn-primary">Check</a> -->
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="btn-group">
+        <a class="btn btn-sm btn-outline-secondary" href="{% url 'products:detail' slug=instance.slug %}">View</a>
+        {% include 'products/snippets/update-cart.html' with product=instance cart=cart %}
+      </div>
+      <small class="text-muted">{{instance.price}}</small>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+{% url "home" as home_url %}
+{% url "products:list" as shop_url %}
+{% url "about" as about_url %}
+{% url "contact" as contact_url %}
+{% url "login" as login_url %}
+{% url "logout" as logout_url %}
+{% url "register" as register_url %}
+{% url 'account:home' as account_url %}
+{% url "cart:home" as cart_url %}
+<!-- Start Top Bar -->
+<div class="container">
+  <header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      {% comment %} <div class="top-bar-left d-flex justify-content-start col-5 pt-1">
+        <form action="" class="form-inline">
+          <div class="input-group">
+            <input type="text" class="input-large" placeholder="Email">
+            <button type="submit" class="btn  btn-info">Subscribe</button>
+          </div>
+        </form>
+      </div> {% endcomment %}
+      <div class="col-4 text-center">
+        <a class="navbar-brand blog-header-logo text-dark" href="{% url "home" %}">{% if brand_name %} <h1>{{ brand_name }}</h1> {% else %}Navbar {% endif %}</a>
+      </div>
+      {% comment %} <div class="top-bar-right mx-auto col-5 d-flex justify-content-end align-items-center">
+        <ul class="navbar-nav mr-auto menu vertical medium-horizontal">
+          {% include "search/snippets/search-form.html" %}
+        </ul>
+      </div> {% endcomment %}
+    </div>
+  </header>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light top-bar" id="mainNavigation">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse top-bar-left" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto menu vertical medium-horizontal">
+        <li class="nav-item {% if request.path == home_url %}active{% endif %}">
+          <a class="nav-link" href="{{ home_url }}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item  dropdown {% if request.path == shop_url %}active{% endif %}">
+          <a class="nav-link dropdown-toggle" href="{{ shop_url }}" id="storeDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Shop</a>
+          <div class="container w-100">
+            <div class="dropdown-menu nav-scroller py-1 mb-2" aria-labelledby="storeDropdown">
+              <nav class="dropdown-item nav d-flex justify-content-between">
+                <a class="p-2 text-muted" href="#">World</a>
+                <a class="p-2 text-muted" href="#">U.S.</a>
+                <a class="p-2 text-muted" href="#">Technology</a>
+                <a class="p-2 text-muted" href="#">Design</a>
+                <a class="p-2 text-muted" href="#">Culture</a>
+                <a class="p-2 text-muted" href="#">Business</a>
+                <a class="p-2 text-muted" href="#">Politics</a>
+                <a class="p-2 text-muted" href="#">Opinion</a>
+                <a class="p-2 text-muted" href="#">Science</a>
+                <a class="p-2 text-muted" href="#">Health</a>
+                <a class="p-2 text-muted" href="#">Style</a>
+                <a class="p-2 text-muted" href="#">Travel</a>
+              </nav>
+            </div>
+          </div>
+        </li>  
+        <li class="nav-item {% if request.path == about_url %}active{% endif %}">
+          <a class="nav-link" href="{{ about_url }}">About</a>
+        </li>      
+        <li class="nav-item {% if request.path == contact_url %}active{% endif %}">
+          <a class="nav-link" href="{{ contact_url }}">Contact</a>
+        </li>
+        {% if request.user.is_authenticated %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item {% if request.path == account_url %}active{% endif %}" href="{{ account_url }}">Home</a>
+            <a class="dropdown-item" href="{{ account_url }}#billing">Billing</a>
+            <a class="dropdown-item" href="{% url "account:user-product-history" %}">History</a>
+            <a class='dropdown-item' href='{% url "library" %}'>Library</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{ logout_url }}">Logout</a>
+          </div>
+        </li>
+        {% else %}
+        <li class="nav-item {% if request.path == login_url %}active{% endif %}">
+          <a class="nav-link" href="{{ login_url }}">Login</a>
+        </li>
+        <li class="nav-item {% if request.path == register_url %}active{% endif %}">
+          <a class="nav-link" href="{{ register_url }}" tabindex="-1" aria-disabled="false">register</a>
+        </li>
+        {% endif %}  
+        <li class="nav-item {% if request.path == cart_url %}active{% endif %}">
+          <a class="nav-link" href="{{ cart_url }}"><span class="navbar-cart-count">({{ request.session.cart_items }})</span> <i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="navbar-cart-total">  ${{ request.session.total }}</span> </a>
+        </li>    
+      </ul>
+    </div>
+  </div>
+</nav>
+

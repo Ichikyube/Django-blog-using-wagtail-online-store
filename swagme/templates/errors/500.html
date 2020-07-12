@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
+{% endblock extra_css %}
+{% block body_class %}template-500{% endblock %}
+
+{% block content %}
+		<main class="main">
+		  <div id="background"></div>
+		  <div id="midground"></div>
+		  <div id="foreground"></div>
+		  <div id="page-wrap" class="container">
+		    <section  class="jumbotron text-center" >
+		        <div class="main-text">
+			        <h1>Internal server error</h1>
+
+			        <h2>Sorry, there seems to be an error. Please try again soon.</h2>
+			        <h2>Maaf, ada kesalahan teknis. Mohon kembali lagi beberapa saat kemudian.</h2>
+		        </div>
+		    </section>
+		  </div>
+		</main>
+{% endblock %}

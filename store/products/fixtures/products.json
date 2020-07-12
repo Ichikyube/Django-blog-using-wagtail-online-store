@@ -1,0 +1,58 @@
+[
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "title": "Bukuka",
+        "slug": "abc",
+        "description": "sebuah buku yang jika dibuka dapat dibaca ditutup dan diletakkan di rak. Buruan beli",
+        "price": "5.00",
+        "image": "",
+        "featured": false,
+        "active": true,
+        "timestamp": "2019-01-06T16:13:41.622Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "title": "cactus",
+        "slug": "abcd",
+        "description": "tanaman berduri dan bisa berbahaya",
+        "price": "5.00",
+        "image": "products/211760589/211760589.jpg",
+        "featured": true,
+        "active": true,
+        "timestamp": "2019-01-06T16:13:41.622Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "title": "coolaid",
+        "slug": "coolaid",
+        "description": "yang dingin dan menyegarkan seperti AC Uchiha",
+        "price": "5.00",
+        "image": "products/256742404/256742404.jpg",
+        "featured": false,
+        "active": true,
+        "timestamp": "2019-01-06T16:13:41.622Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "title": "bunga jeruk",
+        "slug": "bungajeruk",
+        "description": "sebuah bunga yang manis di mata pahit di lidah seperti buah jeruk nipis dan dimakan saat kantong sedang tipis",
+        "price": "8.00",
+        "image": "products/595394/595394.jpg",
+        "featured": false,
+        "active": true,
+        "timestamp": "2019-01-09T09:44:34.796Z"
+    }
+}
+]
