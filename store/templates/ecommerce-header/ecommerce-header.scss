@@ -1,4 +1,4 @@
-.ecommerce-header {
+.store-header {
   width: 100%;
   background-color: $white;
 
@@ -61,7 +61,7 @@
 }
 
 
-.ecommerce-header-top {
+.store-header-top {
   width: 100%;
   background-color: darken($dark-gray,20%);
   height: 40px;
@@ -73,12 +73,12 @@
   }
 }
 
-.ecommerce-header-top-message {
+.store-header-top-message {
   color: lighten($dark-gray, 100%);
   float: left;
 }
 
-.ecommerce-header-top-links {
+.store-header-top-links {
   color: lighten($dark-gray, 100%);
 
   ul li {
@@ -97,7 +97,7 @@
   }
 }
 
-.ecommerce-header-off-canvas {
+.store-header-off-canvas {
   background-color: darken($dark-gray,20%);
 
   .menu {
@@ -109,7 +109,7 @@
   }
 }
 
-.ecommerce-header-mobile {
+.store-header-mobile {
   background-color: darken($dark-gray,20%);
   display: flex;
   padding: rem-calc(10) rem-calc(20);
@@ -117,25 +117,25 @@
   justify-content: space-between;
 }
 
-.ecommerce-header-mobile-left,
-.ecommerce-header-mobile-right,
-.ecommerce-header-mobile-center {
+.store-header-mobile-left,
+.store-header-mobile-right,
+.store-header-mobile-center {
   flex: 1 0 0;
 }
 
-.ecommerce-header-mobile-left {
+.store-header-mobile-left {
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
-.ecommerce-header-mobile-center {
+.store-header-mobile-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.ecommerce-header-mobile-right {
+.store-header-mobile-right {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -146,7 +146,7 @@
   }
 }
 
-.ecommerce-header-search-exandable input[type=search] {
+.store-header-search-exandable input[type=search] {
   margin: 0 1rem;
   background: $light-gray url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
   border: solid 1px $medium-gray;
@@ -156,21 +156,21 @@
   transition: all 0.5s;
 }
 
-.ecommerce-header-search-exandable input[type=search]:focus {
+.store-header-search-exandable input[type=search]:focus {
   width: 120px;
   background-color: $white;
   border-color: $primary-color;
   box-shadow: 0 0 5px rgba($primary-color, 0.5);
 }
 
-.ecommerce-header-search-exandable input:-moz-placeholder {
+.store-header-search-exandable input:-moz-placeholder {
   color: $dark-gray;
 }
 
-.ecommerce-header-search-exandable input::-webkit-input-placeholder {
+.store-header-search-exandable input::-webkit-input-placeholder {
   color: $dark-gray;
 }
 
-.ecommerce-header-search-exandable input[type=search]:hover {
+.store-header-search-exandable input[type=search]:hover {
   background-color: $white;
 }

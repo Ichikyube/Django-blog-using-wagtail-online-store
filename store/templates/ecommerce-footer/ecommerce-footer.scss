@@ -1,9 +1,9 @@
-.ecommerce-footer {
+.store-footer {
   background-color: $white;
   padding: 70px 20px 40px 20px;
 }
 
-.ecommerce-footer-links {
+.store-footer-links {
 
   h5 {
     color: $black;
@@ -35,7 +35,7 @@
     }
   }
 
-  .ecommerce-footer-links-block {
+  .store-footer-links-block {
 
     @include breakpoint(medium down) {
       margin-bottom: 3rem;
@@ -43,7 +43,7 @@
   }
 }
 
-.ecommerce-footer-bottom-bar {
+.store-footer-bottom-bar {
   border-top: 1px solid $light-gray;
   margin-top: 40px;
   padding-bottom: 80px;
@@ -88,7 +88,7 @@
     }
   }
 
-  .ecommerce-footer-logomark {
+  .store-footer-logomark {
     text-align: center;
 
     @include breakpoint(small down) {

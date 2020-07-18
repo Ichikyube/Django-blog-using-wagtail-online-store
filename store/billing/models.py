@@ -1,9 +1,9 @@
 from django.conf import settings
 from django.db import models
 from django.db.models.signals import pre_save, post_save
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
-from accounts.models import GuestEmail
+from store.accounts.models import GuestEmail
 
 import stripe
 STRIPE_SECRET_KEY = getattr(settings, "STRIPE_SECRET_KEY", "sk_test_O75Oz9PYi3R3cvIh1dZSyslO")
@@ -29,7 +29,7 @@ class BillingProfileManager(models.Manager):
         return obj, created
 
 class BillingProfile(models.Model):
-    user        = models.OneToOneField(User, null=True, blank=True)
+    user        = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
     email       = models.EmailField()
     active      = models.BooleanField(default=True)
     update      = models.DateTimeField(auto_now=True)
@@ -104,7 +104,7 @@ class CardManager(models.Manager):
 
 
 class Card(models.Model):
-    billing_profile         = models.ForeignKey(BillingProfile)
+    billing_profile         = models.ForeignKey(BillingProfile, on_delete=models.CASCADE)
     stripe_id               = models.CharField(max_length=120)
     brand                   = models.CharField(max_length=120, null=True, blank=True)
     country                 = models.CharField(max_length=20, null=True, blank=True)
@@ -171,7 +171,7 @@ class ChargeManager(models.Manager):
 
 
 class Charge(models.Model):
-    billing_profile         = models.ForeignKey(BillingProfile)
+    billing_profile         = models.ForeignKey(BillingProfile, on_delete=models.CASCADE)
     stripe_id               = models.CharField(max_length=120)
     paid                    = models.BooleanField(default=False)
     refunded                = models.BooleanField(default=False)

@@ -5,11 +5,11 @@ from django.conf import settings
 from django.db import models
 from django.db.models.signals import pre_save, post_save
 
-from addresses.models import Address
-from billing.models import BillingProfile
-from carts.models import Cart
-from ecommerce.utils import unique_order_id_generator
-from products.models import Product
+from store.addresses.models import Address
+from store.billing.models import BillingProfile
+from store.carts.models import Cart
+from store.utils import unique_order_id_generator
+from store.products.models import Product
 
 ORDER_STATUS_CHOICES = (
     ('created', 'Created'),

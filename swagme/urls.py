@@ -9,6 +9,26 @@ from wagtail.documents import urls as wagtaildocs_urls
 from django.conf.urls.static import static
 from search import views as search_views
 from blog import views as blog_views
+
+from django.contrib.auth.views import LogoutView
+from django.views.generic import TemplateView
+# from carts.views import cart_home
+from store.accounts.views import LoginView, RegisterView, guest_register_view
+from store.addresses.views import checkout_address_create_view
+from store.billing.views import payment_method_view
+from store.carts.views import cart_detail_api_view
+from store.views import home_page, about_page, contact_page
+
+# from products.views import (
+#                                 ProductListView, 
+#                                 product_list_view, 
+#                                 ProductDetailView, 
+#                                 ProductDetailSlugView, 
+#                                 product_detail_view,
+#                                 ProductFeaturedListView,
+#                                 ProductFeaturedDetailView
+#                             )
+
 handler400 = 'blog.views.bad_request'
 handler403 = 'blog.views.permission_denied'
 handler404 = 'blog.views.page_not_found'
@@ -20,6 +40,19 @@ urlpatterns = [
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
 
+    url(r'^store/$', home_page, name='home'),
+    url(r'^about/$', about_page,name='about'),
+    url(r'^contact/$', contact_page, name='contact'),
+    url(r'^login/$', LoginView.as_view(), name='login'),
+    url(r'^checkout/address/create/$', checkout_address_create_view, name='checkout_address_create'),
+    url(r'^register/guest/$', guest_register_view, name='guest_register'),
+    url(r'^bootstrap/$', TemplateView.as_view(template_name='bootstrap/example.html')),
+    url(r'^logout/$', LogoutView.as_view(), name='logout'),
+    url(r'^api/cart/',cart_detail_api_view, name='api-cart'),
+    url(r'^cart/', include("carts.urls", namespace='cart')),
+    url(r'^billing/payment-method/$', payment_method_view, name='billing-payment-method'),
+    url(r'^register/$', RegisterView.as_view(), name='register'),
+    url(r'^products/', include("products.urls", namespace='products')),
     url(r'^search/$', search_views.search, name='search'),
     url(r'^404/$', blog_views.page_not_found),
 

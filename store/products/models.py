@@ -8,9 +8,9 @@ from django.db.models import Q
 from django.db.models.signals import pre_save, post_save
 from django.urls import reverse
 
-from ecommerce.utils import unique_slug_generator, get_filename
-from ecommerce.aws.utils import ProtectedS3Storage
-from ecommerce.aws.download.utils import AWSDownload
+from store.utils import unique_slug_generator, get_filename
+from store.aws.utils import ProtectedS3Storage
+from store.aws.download.utils import AWSDownload
 
 
 def get_filename_ext(filepath):

@@ -59,8 +59,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    'fullurl'
+    'django.contrib.humanize',
+    'fullurl',
+    #my store
+    'store.accounts',
+    'store.addresses',
+    'store.analytics',
+    'store.billing',
+    'store.products',
+    'tags',
+    'store.carts',
+    'store.orders',
 ]
+
+AUTH_USER_MODEL = 'accounts.User'
+
+FORCE_SESSION_TO_ONE = False
+FORCE_INACTIVE_USER_ENDSESSION = False
 
 MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -74,6 +89,7 @@ MIDDLEWARE = [
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
+LOGOUT_REDIRECT_URL = '/login/'
 ROOT_URLCONF = 'swagme.urls'
 
 TEMPLATES = [
@@ -108,6 +124,24 @@ DATABASES = {
     }
 }
 
+
+AUTH_USER_MODEL = 'accounts.User' #changes the built-in user model to ours
+LOGIN_URL = '/login/'
+LOGIN_URL_REDIRECT = '/'
+LOGOUT_URL = '/logout/'
+
+FORCE_SESSION_TO_ONE = False
+FORCE_INACTIVE_USER_ENDSESSION= False
+
+
+
+MAILCHIMP_API_KEY = "717d0854ed20fed3be3689a3f125915c-us17"
+MAILCHIMP_DATA_CENTER = "us17"
+MAILCHIMP_EMAIL_LIST_ID = "e2ef12efee"
+
+
+STRIPE_SECRET_KEY = "sk_test_cu1lQmcg1OLffhLvYrSCp5XE"
+STRIPE_PUB_KEY = 'pk_test_PrV61avxnHaWIYZEeiYTTVMZ'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -184,4 +218,20 @@ WAGTAIL_SITE_NAME = "swagme"
 SITE_ID = 1
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'hungrypy@gmail.com' 
+EMAIL_HOST_PASSWORD = 'yourpassword'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'Python ecommerce <hungrypy@gmail.com>'
+
+
+MANAGERS = (
+    ('Justin Mitchel', "hungrypy@gmail.com"),
+)
+
+ADMINS = MANAGERS
+
 BASE_URL = 'http://localhost:8000/'
+
